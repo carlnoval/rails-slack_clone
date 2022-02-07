@@ -2,7 +2,9 @@
   <div class="row justify-content-center">
     <div class="col-8">
       <h1>#<%= @chatroom.name %></h1>
+      <%# placing the id of the chatroom inside a tag which is hidden, this is for js %>
       <div id="messages" data-chatroom-id="<%= @chatroom.id %>">
+        <%# iterate through each messages %>
         <% @chatroom.messages.each do |message| %>
           <div class="message-container" id="message-<%= message.id %>">
             <i class="author">
@@ -13,6 +15,12 @@
           </div>
         <% end %>
       </div>
+
+      <%# by default turbolink is enabled in rails 6, remote: true will re-render the entire body w/o reloading the page %>
+      <%= simple_form_for [ @chatroom, @message ], remote: true do |f| %>
+        <%= f.input :content, label: false, placeholder: "Message ##{@chatroom.name}" %>
+        <%= f.submit "Send message"%>
+      <% end %>
     </div>
   </div>
 </div>
