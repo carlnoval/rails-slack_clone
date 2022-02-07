@@ -9,12 +9,6 @@ const initChatroomCable = () => {
 
     consumer.subscriptions.create({ channel: "ChatroomChannel", id: id }, {
       received(data) {
-        // data comes from messages_controller#create... ChatroomChannel.broadcast_to...
-        // data is the string containing the html structure
-
-        // will just log the typed message in the console
-        // console.log(data); // called when data is broadcast in the cable
-
         messagesContainer.insertAdjacentHTML('beforeend', data);
       },
     });
@@ -24,6 +18,7 @@ const initChatroomCable = () => {
 export { initChatroomCable };
 
 // code with a bunch of comments
+
 // const initChatroomCable = () => {
 //   const messagesContainer = document.getElementById('messages');
 //   // safetynet to make sure all other pages where messageContainer don't exists does not run into errors
@@ -39,6 +34,11 @@ export { initChatroomCable };
 //     // id: id - is the id retrieved from the html, needed to be able to join the right
 //     // id: id - not needed if app only has one general channel @42 mins of the lecture
 //     consumer.subscriptions.create({ channel: "ChatroomChannel", id: id }, {
+//         // data comes from messages_controller#create... ChatroomChannel.broadcast_to...
+//         // data is the string containing the html structure
+
+//         // will just log the typed message in the console
+//         // console.log(data); // called when data is broadcast in the cable
 //       received(data) {
 //         console.log(data); // called when data is broadcast in the cable
 //       },

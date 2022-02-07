@@ -13,6 +13,7 @@
 # rails g controller messages
 
 # rails g channel Chatroom
+# convention: rails g channel ChannelName
 # invoke  test_unit
 # create    test/channels/chatroom_channel_test.rb
 # create  app/channels/chatroom_channel.rb
