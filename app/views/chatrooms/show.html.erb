@@ -6,13 +6,8 @@
       <div id="messages" data-chatroom-id="<%= @chatroom.id %>">
         <%# iterate through each messages %>
         <% @chatroom.messages.each do |message| %>
-          <div class="message-container" id="message-<%= message.id %>">
-            <i class="author">
-              <span><%= message.user.nickname %></span>
-              <small><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
-            </i>
-            <p><%= message.content %></p>
-          </div>
+          <%# the id="message-..." is for the use of anchor in the messages controller > create %>
+          <%= render "messages/message", message: message %>
         <% end %>
       </div>
 

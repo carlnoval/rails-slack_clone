@@ -11,3 +11,8 @@
 # User.create(email: "rcarl@email.com", nickname: "carl2", password: "123456")
 
 # rails g controller messages
+
+# rails g channel Chatroom
+# invoke  test_unit
+# create    test/channels/chatroom_channel_test.rb
+# create  app/channels/chatroom_channel.rb
